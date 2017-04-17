@@ -1,0 +1,27 @@
+<ion-view  hide-nav-bar="true" hide-back-button="true"  id="page4">
+  <ion-content padding="true" class="back-home" scroll="false" >
+  <div>
+      <img src="img/logo-ssFond.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="spacer" style="height: 40px;"></div>
+    <form id="login-form1" class="list">
+      <ion-list id="login-list2">
+        <label class="item item-input" id="login-input1">
+          <span class="input-label">Adresse mail</span>
+           <input type="text" placeholder="Adresse mail" ng-model="data.username">
+        </label>
+        <div class="spacer" style="height: 40px;"></div>
+        <label class="item item-input" id="login-input2">
+          <span class="input-label">Mot de passe</span>
+           <input type="password" placeholder="Mot de passe" ng-model="data.password">
+        </label>
+      </ion-list>
+
+      <div class="spacer" style="height: 40px;"></div>
+      <button id="login-button1"  class="button button-light  button-block button-outline"  ng-click="login()" >Connexion</button>
+    
+    
+      <a  ui-sref="inscription" id="login-button2" class="button button-positive  button-block button-clear">Vous n'avez pas de compte ? S'inscrire</a>
+    </form>
+  </ion-content>
+</ion-view>
