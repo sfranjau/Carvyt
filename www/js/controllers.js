@@ -68,7 +68,7 @@ whatToDo.sendEmail = function (email) {
    };
 })
 .controller('SuiviCtrl', function($scope, $http) {
-  var url = 'https://carvytal-83de6.firebaseio.com';
+  var url = 'https://carvytal-83de6.firebaseio.com/piece.json';
 
   $scope.items = getItems();
 
@@ -88,8 +88,10 @@ whatToDo.sendEmail = function (email) {
     var items = [];
     $http.get(url).success(function(data) {
       angular.forEach(data, function(value, key) {
+        if (value!= null) {
         var designation = {designation: value.designation};
           items.push(designation);
+          }
       });
     });
 
@@ -109,4 +111,81 @@ whatToDo.sendEmail = function (email) {
     { id: 5, title: 'Titre 5'},
     { id: 6, title: 'Titre 6'}
   ];
-});
+})
+
+.controller('LogCtrl', function($scope, $state, AuthService, $ionicLoading) {
+  $scope.login = function(user){
+    $ionicLoading.show({
+      template: 'Logging in ...'
+    });
+
+    AuthService.doLogin(user)
+    .then(function(user){
+      // success
+      $state.go('tab.dash');
+      $ionicLoading.hide();
+    },function(err){
+      // error
+      $scope.errors = err;
+      $ionicLoading.hide();
+    });
+  };
+
+  $scope.facebookLogin = function(){
+    $ionicLoading.show({
+      template: 'Logging in with Facebook ...'
+    });
+
+    AuthService.doFacebookLogin()
+    .then(function(user){
+      // success
+      $state.go('tab.dash');
+      $ionicLoading.hide();
+    },function(err){
+      // error
+      $scope.errors = err;
+      $ionicLoading.hide();
+    });
+  };
+})
+
+.controller('SignUpCtrl', function($scope, $state, AuthService, $ionicLoading) {
+  $scope.signup = function(user){
+    $ionicLoading.show({
+      template: 'Signing up ...'
+    });
+
+    AuthService.doSignup(user)
+    .then(function(user){
+      // success
+      $state.go('tab.dash');
+      $ionicLoading.hide();
+    },function(err){
+      // error
+      $scope.errors = err;
+      $ionicLoading.hide();
+    });
+  };
+})
+
+.controller('UserCtrl', function($scope, $state, AuthService){
+  $scope.current_user = {};
+
+  var current_user = AuthService.getUser();
+
+  if(current_user && current_user.provider == "facebook"){
+    $scope.current_user.email = current_user.facebook.displayName;
+    $scope.current_user.image = current_user.facebook.profileImageURL;
+  } else {
+    $scope.current_user.email = current_user.password.email;
+    $scope.current_user.image = current_user.password.profileImageURL;
+  }
+
+  $scope.logout = function(){
+    AuthService.doLogout();
+
+    $state.go('log');
+  };
+})
+
+;

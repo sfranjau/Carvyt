@@ -25,6 +25,21 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAHLkXePygZOk4NDREKg0PEBtwXiLN6vtk",
+        authDomain: "carvytal-83de6.firebaseapp.com",
+        databaseURL: "https://carvytal-83de6.firebaseio.com",
+        projectId: "carvytal-83de6",
+        storageBucket: "carvytal-83de6.appspot.com",
+        messagingSenderId: "139001166647"
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
