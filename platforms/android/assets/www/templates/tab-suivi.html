@@ -1,5 +1,18 @@
 <ion-view view-title="Suivi">
   <ion-content>
+ 
+    <ion-header-bar class="bar-stable">
+    <h1 class="title">Courses</h1>
+    <div class="buttons">
+      <button class="button button-icon ion-plus" ng-click="addItem()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in items">
+        {{item.designation}}
+      </ion-item>
+    </ion-list>
 
   <div class="card">
    <div class="item item-icon-left">

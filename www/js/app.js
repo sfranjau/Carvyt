@@ -83,12 +83,12 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.accueil', {
+    url: '/accueil',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-accueil': {
+        templateUrl: 'templates/tab-accueil.html',
+        controller: 'AccueilCtrl'
       }
     }
   })

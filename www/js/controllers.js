@@ -1,8 +1,23 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('AccueilCtrl', function($scope) {})
 
 .controller('MoreCtrl', function($scope) {
+  $scope.sendFeedback= function() {
+        if(window.plugins && window.plugins.emailComposer) {
+            window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+                console.log("Response -> " + result);
+            }, 
+            "Contact CarVytal", // Subject
+            "",                      // Body
+            ["contact.carvytal@gmail.com"],    // To
+            null,                    // CC
+            null,                    // BCC
+            false,                   // isHTML
+            null,                    // Attachments
+            null);                   // Attachment Data
+        }
+    }
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -13,34 +28,8 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ContactCtrl', function ($scope, $state) {
-
-var whatToDo = this;
-
-/**
- * Sends an email using Email composer with attachments plugin and using
- * parameter email.
- *
- * @param email
- */
-whatToDo.sendEmail = function (email) {
-  if (window.plugins && window.plugins.emailComposer) { //check if plugin exists
-
-    window.plugins.emailComposer.showEmailComposerWithCallback(function (result) {
-        //console.log("Email sent successfully");
-      },
-
-      "Test",        // Subject
-      "Teste d'envoie de mail",        // Body
-      ["franjaud.stephane@live.fr"],     // To (Email to send)
-      null,        // CC
-      null,        // BCC
-      false,       // isHTML
-      null,        // Attachments
-      null);       // Attachment Data
-  }
-
-}
+.controller('ContactCtrl', function($scope) {
+    
 })
 
 .controller('InscriptionCtrl', function($scope) {})
@@ -50,7 +39,7 @@ whatToDo.sendEmail = function (email) {
  
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('tab.dash');
+            $state.go('tab.accueil');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Login failed!',
