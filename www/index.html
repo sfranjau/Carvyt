@@ -31,6 +31,7 @@
     <script>
       // Initialize Firebase
       var config = {
+        
         apiKey: "AIzaSyAHLkXePygZOk4NDREKg0PEBtwXiLN6vtk",
         authDomain: "carvytal-83de6.firebaseapp.com",
         databaseURL: "https://carvytal-83de6.firebaseio.com",
@@ -39,6 +40,7 @@
         messagingSenderId: "139001166647"
       };
       firebase.initializeApp(config);
+       var rootRef = firebase.database().ref();
     </script>
 
     <!-- cordova script (this will be a 404 during development) -->

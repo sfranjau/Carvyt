@@ -27,8 +27,16 @@ angular.module('starter.services', [])
 })
 
 .service('AuthService', function($q){
-  var _firebase = new Firebase("https://carvytal-83de6.firebaseio.com/");
 
+ //  import FBApp from '/module/firebase.js'
+//var messagesRef = FBApp.ref("messages/");
+      // Initialize Firebase
+    
+   
+  //var _firebase = new Firebase("https://carvytal-83de6.firebaseio.com");
+  var _firebase  = firebase.database().ref();
+
+var auth = firebase.auth();
   this.userIsLoggedIn = function(){
     var deferred = $q.defer(),
         authService = this,
@@ -46,7 +54,7 @@ angular.module('starter.services', [])
   this.doLogin = function(user){
     var deferred = $q.defer();
 
-    _firebase.authWithPassword({
+    auth.authWithPassword({
       email    : user.email,
       password : user.password
     }, function(errors, data) {

@@ -136,6 +136,6 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
 
   // if none of the above states are matched, use this as the fallback
   //permet de définir la premiere page appeler dans l'application
-  $urlRouterProvider.otherwise('login');
+  $urlRouterProvider.otherwise('log');
 
 });

@@ -11,3 +11,12 @@ ion-card.cards-list-demo ion-card-header {
     flex: 1;
     flex-direction: column;
 }
+
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+td
+{
+    border: 1px solid black;
+}

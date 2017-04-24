@@ -111,7 +111,7 @@ angular.module('starter.controllers', [])
     AuthService.doLogin(user)
     .then(function(user){
       // success
-      $state.go('tab.dash');
+      $state.go('tab.accueil');
       $ionicLoading.hide();
     },function(err){
       // error
@@ -119,6 +119,8 @@ angular.module('starter.controllers', [])
       $ionicLoading.hide();
     });
   };
+
+  
 
   $scope.facebookLogin = function(){
     $ionicLoading.show({
@@ -128,7 +130,7 @@ angular.module('starter.controllers', [])
     AuthService.doFacebookLogin()
     .then(function(user){
       // success
-      $state.go('tab.dash');
+      $state.go('tab.accueil');
       $ionicLoading.hide();
     },function(err){
       // error
@@ -147,7 +149,7 @@ angular.module('starter.controllers', [])
     AuthService.doSignup(user)
     .then(function(user){
       // success
-      $state.go('tab.dash');
+      $state.go('tab.accueil');
       $ionicLoading.hide();
     },function(err){
       // error

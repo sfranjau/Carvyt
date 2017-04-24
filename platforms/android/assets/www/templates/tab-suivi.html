@@ -7,7 +7,27 @@
       <button class="button button-icon ion-plus" ng-click="addItem()"></button>
     </div>
   </ion-header-bar>
+
+
   <ion-content>
+  <div class="card">
+   <div class="item item-avatar">
+       <img src="img/logo/renault.png">
+      <h2>Card Name</h2>
+   </div>
+
+   <div class="item item-body">
+      <img class="full-image" src="my-image.png">
+      <table>
+   <tr>
+       <td>166 659 KM</td>
+       <td>Essence</td>
+       <td>Année 2004</td>
+   </tr>
+   
+</table>
+</div>
+</div>
     <ion-list>
       <ion-item ng-repeat="item in items">
         {{item.designation}}
