@@ -1,30 +1,31 @@
-<ion-view>
-  <ion-header-bar class="bar-stable">
-    <h1 class="title">Log In</h1>
-  </ion-header-bar>
-  <ion-content class="padding">
-    <button class="button button-block button-positive" ng-click="facebookLogin()">Login with Facebook</button>
-    <div class="row">
-      <div class="col col-center">
-        <h4 class="text-center">OR</h4>
-      </div>
-    </div>
-    <form name="login_form" class="form-container" novalidate>
-      <div class="list list-inset">
-        <label class="item item-input">
-          <input type="email" placeholder="Email" ng-model="user.email" required>
-        </label>
-        <label class="item item-input">
-          <input type="password" placeholder="Password" ng-model="user.password" required>
-        </label>
-      </div>
-      <button class="button button-block button-balanced" ng-click="login(user)" ng-disabled="login_form.$invalid">Login</button>
-    </form>
-    <button class="button button-block button-clear button-positive button-small" ui-sref="signup">
-      Sign Up
-    </button>
-    <div ng-show="errors">
-      <p class="message error" ng-repeat="error in errors"><b>[{{error.code}}]</b> {{error.msg}}</p>
-    </div>
+<ion-view hide-nav-bar="true" style="" class=" " id="page5" title="Login">
+  <!-- #1. style -->  
+    <ion-content class="has-header" padding="true" style="background: url(img/fond.png) center; background-size: cover;">
+ 
+    <form name="loginForm" class="list " id="login-form1">
+            <ion-list class=" " id="login-list2">
+ 
+                <div class="app-icon"></div>
+ 
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" style="color: #9F9F9F;">Email</span>
+                    <input ng-model="user.email" style="color: white;" type="email" placeholder="Email">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" style="color: #9F9F9F;" >Password</span>
+                    <input ng-model="user.password" style="color: white;" type="password" placeholder="Password">
+                </label>
+ 
+            </ion-list>
+ 
+            <div style="height: 40px;" class="spacer"></div>
+            <button ng-click="loginEmail(loginForm,user)" class=" button button-assertive  button-block  icon-left ion-ios-email-outline "  id="signup-button3">LOGIN WITH EMAIL</button>
+        
+    <!-- #2. FB login-->
+      <button ng-click="loginFb('facebook')" class=" button button-positive  button-block icon-left ion-social-facebook "  id="signup-button4">LOGIN WITH FACEBOOK</button>
+        </form>
+ 
+    <a class=" button button-stable  button-block button-clear icon-left ion-ios-email-outline " id="login-button5" ui-sref="tabsController.forgotPassword">FORGOT PASSWORD</a>
+ 
   </ion-content>
 </ion-view>

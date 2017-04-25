@@ -51,7 +51,7 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
   .state('signup', {
     url: '/signup',
         templateUrl: 'templates/signup.html',
-        controller: 'SignUpCtrl'
+        controller: 'SignupCtrl'
        
   })
 
@@ -134,7 +134,7 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
     }
   })  ;
 
-  // if none of the above states are matched, use this as the fallback
+  // if none of the above states are matched,se this as the fallback
   //permet de définir la premiere page appeler dans l'application
   $urlRouterProvider.otherwise('log');
 

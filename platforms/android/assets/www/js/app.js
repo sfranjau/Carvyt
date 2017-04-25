@@ -1,11 +1,10 @@
 // Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.services'])
 
 //Permet de fixer la barre tabs en bas sur toutes les platforms
 .config(function($ionicConfigProvider) {
@@ -38,6 +37,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+
+ 
+
+  .state('log', {
+    url: '/log',
+    
+        templateUrl: 'templates/log.html',
+        controller: 'LogCtrl'
+      
+  })
+
+  .state('signup', {
+    url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'SignupCtrl'
+       
+  })
+
   .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
@@ -66,12 +83,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.accueil', {
+    url: '/accueil',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-accueil': {
+        templateUrl: 'templates/tab-accueil.html',
+        controller: 'AccueilCtrl'
       }
     }
   })
@@ -117,8 +134,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })  ;
 
-  // if none of the above states are matched, use this as the fallback
+  // if none of the above states are matched,se this as the fallback
   //permet de définir la premiere page appeler dans l'application
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('log');
 
 });
