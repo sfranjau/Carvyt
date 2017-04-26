@@ -242,7 +242,7 @@ angular.module('starter.controllers', [])
 .controller('SignupCtrl', function($scope,$rootScope,sharedUtils,$ionicSideMenuDelegate,
                                    $state,fireBaseData,$ionicHistory) {
     $rootScope.extras = false; // For hiding the side bar and nav icon
- 
+
     $scope.signupEmail = function (formName, cred) {
  
       if (formName.$valid) {  // Check if the form data is valid or not
@@ -272,7 +272,7 @@ angular.module('starter.controllers', [])
             $ionicSideMenuDelegate.canDragContent(true);  // Sets up the sideMenu dragable
             $rootScope.extras = true;
             sharedUtils.hideLoading();
-            $state.go('tab.accueil', {}, {location: "replace"});
+            $state.go('log', {}, {location: "replace"});
  
         }, function (error) {
             sharedUtils.hideLoading();

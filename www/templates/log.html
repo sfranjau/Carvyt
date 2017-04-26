@@ -1,6 +1,6 @@
-<ion-view hide-nav-bar="true" style="" class=" " id="page5" title="Login">
+<ion-view hide-nav-bar="true" style="" hide-back-button="true"  id="page5" >
   <!-- #1. style -->  
-    <ion-content class="has-header" padding="true" style="background: url(img/fond.png) center; background-size: cover;">
+    <ion-content  padding="true" class="back-home" scroll="true" style="background: url(img/fond.png) center; background-size: cover;">
  
     <form name="loginForm" class="list " id="login-form1">
             <ion-list class=" " id="login-list2">
@@ -26,6 +26,7 @@
         </form>
  
     <a class=" button button-stable  button-block button-clear icon-left ion-ios-email-outline " id="login-button5" ui-sref="tabsController.forgotPassword">FORGOT PASSWORD</a>
+     <a  ui-sref="signup" id="login-button2" class="button button-positive  button-block button-clear">Vous n'avez pas de compte ? S'inscrire</a>
  
   </ion-content>
 </ion-view>
