@@ -73,6 +73,18 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
       controller: 'ContactCtrl'
   })
 
+      .state('compte', {
+      url: '/compte',
+      templateUrl: 'templates/compte.html',
+      controller: 'CompteCtrl'
+  })
+
+        .state('addCar', {
+      url: '/addCar',
+      templateUrl: 'templates/addCar.html',
+      controller: 'AddcarCtrl'
+  })
+
 
   // setup an abstract state for the tabs directive
     .state('tab', {
